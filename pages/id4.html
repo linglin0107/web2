@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas1" width="200" height="100">
+Your browser does not support the HTML5 canvas tag.</canvas>
+<canvas id="myCanvas2" width="200" height="160">
+Your browser does not support the HTML5 canvas tag.</canvas>
+<canvas id="myCanvas3" width="200" height="200">
+Your browser does not support the HTML5 canvas tag.</canvas>
+<br><hr>
+<h2 style="background-color:yellow">Referrence:</h2>
+<p style="color:blue">https://www.w3schools.com/html/html5_canvas.asp</p>
+<script>
+var c = document.getElementById("myCanvas1");
+var ctx = c.getContext("2d");
+// Create gradient
+var grd = ctx.createRadialGradient(75,50,5,90,60,100);
+grd.addColorStop(0,"red");
+grd.addColorStop(1,"white");
+// Fill with gradient
+ctx.fillStyle = grd;
+ctx.fillRect(10,10,150,150);
+
+var c2 = document.getElementById("myCanvas2");
+var ctx = c2.getContext("2d");
+// draw a line
+ctx.moveTo(10, 10);
+ctx.lineTo(160, 160);
+ctx.moveTo(10, 160);
+ctx.lineTo(160, 10);
+ctx.stroke();
+
+var c3 = document.getElementById("myCanvas3");
+var ctx = c3.getContext("2d");
+ctx.beginPath();
+ctx.arc(115,110,80,0,2*Math.PI);
+ctx.stroke();
+ctx.font = "40px Arial";
+ctx.strokeText("LOVE", 65, 115);
+</script>
+
+</body>
+</html>

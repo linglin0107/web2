@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Welcome to smart page1!</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    
+    #animate {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    background-color: red;
+    }
+  
+  </style>
+</head>
+<body>
+   <div class="container-fluid" id="div1">
+     <h1>This is smart Page!</h1>
+     <p>In this page, we will show different functions about DOM.</p>
+     <P id ="demo5">DOM: Document object model;<strong>Click</strong> me to remove this line</P>
+     <P>BOM: Browser object model</P>
+     <P id="demo4"><strong>Click</strong> me to add one more following line</P>
+   </div>
+   <script>
+      document.getElementById("demo5").onclick = function(){
+      var parent = document.getElementById("div1");  
+      var child = document.getElementById("demo5");
+      parent.removeChild(child);}
+      document.getElementById("demo4").onclick = function(){
+      var para = document.createElement("p");
+      var node = document.createTextNode("This is an adding new line.");
+      para.appendChild(node);
+      var element = document.getElementById("div1");
+      element.appendChild(para);}
+   </script>
+   
+   <hr>
+    <div class="container-fluid">
+     <h3 style="background-color:yellow">This part is about change the content of an element by Id.</h3>
+     <p id="demo"><strong>Click</strong> me to change</p>
+     <script>
+         document.getElementById("demo").onclick = function(){document.getElementById("demo").innerHTML = "Hello World!";}
+     </script>
+     <p id="demo7"><strong>Click</strong> me to show the date and time</p>
+     <p id="demo6"></p>
+     <p id="demo8"></p>
+
+    <script>
+    document.getElementById("demo7").onclick = function(){
+        var d = new Date();
+        document.getElementById("demo6").innerHTML = d.toLocaleDateString();
+        document.getElementById("demo8").innerHTML = d.toLocaleTimeString();
+      }
+    </script>
+   </div>
+   
+   <hr>
+    <div class="container-fluid" id="main2">
+      <h3 style="background-color:yellow">This part is about get element collections by TagName.</h3>
+      <p>The DOM is very useful.</p>
+      <p>This example demonstrates the <b>getElementsByTagName</b> method.</p>
+      <p id="demo1"><strong>Click</strong> me show the number of "p" elements</p>
+      </div>
+    <script>
+       var x = document.getElementById("main2");
+       var y = x.getElementsByTagName("p");
+       document.getElementById("demo1").onclick = function(){document.getElementById("demo1").innerHTML = y.length;}
+     </script>
+     
+     <hr>
+    <div class="container-fluid" id="main">
+      <h3 style="background-color:yellow">This part is about change element's attribute by class.</h3>
+      <p class="intro" style="background-color:pink">The DOM is very useful.</p>
+      <p class="intro" style="background-color:pink">This example demonstrates the <b>getElementsByTagName</b> method.</p>
+      <p id="demo2"><strong>Click</strong> me to change the color of the first "p.intro"</p>
+      </div>
+    <script>
+       var x = document.querySelectorAll("p.intro");
+       document.getElementById("demo2").onclick = function(){x[0].style="background-color:yellow"}
+     </script>
+      <hr>
+      
+      <div class="container-fluid" >
+        <h3 style="background-color:yellow">This part is about animate.</h3>
+        <p><button onclick="myMove()">Click Me</button></p>
+        <div id ="animate" ></div>
+       </div>
+     <script>
+        function myMove() {
+           var elem = document.getElementById("animate");   
+           var pos = 0;
+           var id = setInterval(frame, 5);
+               function frame() {
+                 if (pos == 350) {
+                   clearInterval(id);
+                  } else {
+                    pos++; 
+                    elem.style.left = pos + 'px'; 
+                  }
+               }
+         }
+       </script>
+
+
+</body>
+</html>

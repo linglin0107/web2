@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+#div1, #div2 {
+    float: left;
+    width: 310px;
+    height: 163px;
+    margin: 10px;
+    padding: 0;
+    border: 1px solid black;
+}
+footer{
+  clear:both;
+}
+</style>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+
+<h2>API:Drag and Drop</h2>
+<p>Drag and drop the rabbits between the two boxes.</p>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="../images/id3.jpeg" alt = "rabbits" draggable="true" ondragstart="drag(event)" id="drag1" width="310" height="163">
+</div>
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<footer>
+  <h2 style="background-color:yellow">Referrence:</h2>
+  <a style="color:blue">https://www.w3schools.com/html/html5_draganddrop.asp</a>
+</footer>
+
+</body>
+</html>
